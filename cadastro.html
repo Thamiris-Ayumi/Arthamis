@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
     <script src="./js/funcoes.js"></script>
-    <title>Login</title>
+    <title>Cadastro</title>
 </head>
 
 <body>
@@ -20,8 +20,8 @@
                     <ul class="textos">
                         <li><a href="home.html">Home</a></li>
                         <li><a href="quiz.html">Quiz</a></li>
-                        <li><a href="login.html" id="li_login">Login</a></li>
-                        <li><a href="cadastro.html">Cadastro</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="cadastro.html" id="li_cadastro">Cadastro</a></li>
                     </ul>
                 </div>
             </div>
@@ -31,28 +31,44 @@
         <div class="banner">
             <div class="container">
                 <div class="caixa-formulario">
-                    <h3>Login</h3>
+                    <h3>Cadastre-se aqui</h3>
 
                     <div class="caixa-formulario-ipt">
 
                         <div class="campo">
-                            <label for="email">
-                                <img src="./assets/perfil.png" id="icon-perfil">Email
+                            <label for="nome">Nome
+                                <input type="text" placeholder="Digite seu nome" id="in_nome">
+                            </label>
+                        </div>
+
+                        <div class="campo">
+                            <label for="nome">Celular
+                                <input type="text" placeholder="Digite seu número de celular" id="in_celular">
+                            </label>
+                        </div>
+
+                        <div class="campo">
+                            <label for="email">Email
                                 <input type="email" placeholder="Digite seu email" id="in_email">
                             </label>
                         </div>
 
                         <div class="campo">
-                            <label for="senha">
-                                <img src="./assets/cadeado-aberto.png" id="icon-cadeado">Senha
+                            <label for="senha">Senha
                                 <input type="password" placeholder="Crie uma senha" id="in_senha">
+                            </label>
+                        </div>
+
+                        <div class="campo">
+                            <label for="confirmar-senha">Confirmar senha
+                                <input type="password" placeholder="Confirme sua senha" id="in_confirmacao">
                             </label>
                         </div>
 
                     </div>
 
                     <div class="botao">
-                        <button onclick="entrar()">Login</button>
+                        <button onclick="cadastrar()">Cadastrar</button>
                     </div>
                 </div>
             </div>
@@ -84,67 +100,65 @@
 </html>
 
 <script>
-    function entrar() {
-        // aguardar();
+    function cadastrar() {
+        aguardar();
 
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = in_nome.value;
+        var celularVar = in_celular.value;
         var emailVar = in_email.value;
         var senhaVar = in_senha.value;
+        var confirmacaoVar = in_confirmacao.value;
 
-        if (emailVar == "" || senhaVar == "") {
+        if (nomeVar == "" || celularVar == "" || emailVar == "" || senhaVar== "" || confirmacaoVar == "" ) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            // finalizarAguardar();
+
+            finalizarAguardar();
             return false;
         }
         else {
-            // setInterval(sumirMensagem, 5000)
+            setInterval(sumirMensagem, 5000)
         }
 
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
-
-        fetch("/usuarios/autenticar", {
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                celularServer: celularVar,
                 emailServer: emailVar,
-                senhaServer: senhaVar
+                senhaServer: senhaVar,
+                confirmacaoServer: confirmacaoVar
             })
         }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
+
+            console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                console.log(resposta);
+                cardErro.style.display = "block";
 
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
 
-                    setTimeout(function () {
-                        window.location = "dashboard.html";
-                    }, 1000); // apenas para exibir o loading
-
-                });
-
+                limparFormulario();
+                finalizarAguardar();
             } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    // finalizarAguardar(texto);
-                });
+                throw ("Houve um erro ao tentar realizar o cadastro!");
             }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
 
         return false;
     }
