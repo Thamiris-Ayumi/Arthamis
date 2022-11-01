@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/quiz.css">
-    <script src="./js/funcoes.js"></script>
+    <!-- <script src="./js/funcoes.js"></script> -->
     <title>Quiz</title>
 </head>
 
 <body>
-    <div class="background-quiz">
+    <div id="background_geral" class="background_quiz">
+
         <!-- HEADER -->
         <div class="header-quiz">
             <div class="container-quiz">
@@ -26,34 +27,610 @@
                 </div>
             </div>
         </div>
-    </div>
 
-   <div class="banner">
-        <div class="container">
-            <div class="caixa-quadros">
-                <div class="quadros-geral">
+        <!-- BANNER -->
+        <div class="banner">
+            <div class="container-quiz2">
+                <div class="caixa-quadros">
+                    <div class="quadros-geral">
 
-                    <div class="quadro">
-                        <label for="quadro1">
-                            <div id="div_resultado1"></div>
-                        </label>
+                        <div class="quadro">
+                            <label for="quadro1">
+                                <div class="resultado" id="div_resultado1"></div>
+                                <div class="botao">
+                                    <button id="botao1" value="1" onclick="quadro11()">Quadro 1</button>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="quadro">
+                            <label for="quadro2">
+                                <div class="resultado" id="div_resultado2"></div>
+                                <div class="botao">
+                                    <button id="botao2" value="1" onclick="quadro12()">Quadro 2</button>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="quadro">
+                            <label for="quadro3">
+                                <div class="resultado" id="div_resultado3"></div>
+                                <div class="botao">
+                                    <button id="botao3" value="1" onclick="quadro13()">Quadro 3</button>
+                                </div>
+                            </label>
+                        </div>
+
                     </div>
-
-                    <div class="quadro">
-                        <label for="quadro2">
-                            <div id="div_resultado2"></div>
-                        </label>
-                    </div>
-
-                    <div class="quadro">
-                        <label for="quadro3">
-                            <div id="div_resultado3"></div>
-                        </label>
-                    </div>
-
                 </div>
             </div>
         </div>
-   </div>
+    </div>
+
+
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="container-quiz">
+            <img src="./assets/arthamis.jpg" alt="">
+
+            <div class="media">
+                <div id="redes">
+                    <h4>REDES SOCIAIS</h4>
+                    <img src="./assets/whatsapp.png" alt="">
+                    <img src="./assets/instagram.png" alt="">
+                    <img src="./assets/facebook.png" alt="">
+                    <img src="./assets/correspondencia.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright &copy; 2022 Arthamis - All rights reserved
+
+        </div>
+    </div>
+
 </body>
 </html>
+
+<script>
+    var abstrato = 0
+    var impressionismo = 0
+    var renascentista = 0
+
+
+// PRIMEIRA PÁGINA
+function quadro11() {
+        abstrato++
+        background_geral.innerHTML = ''
+        background_geral.innerHTML = `
+        <div class="background_quiz2">
+        <!-- HEADER -->
+        <div class="header-quiz">
+            <div class="container-quiz">
+                <img src="./assets/arthamis.jpg" alt="">
+                <div class="navbar">
+                    <ul class="textos">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="quiz.html" id="li_quiz">Quiz</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- BANNER -->
+        <div class="banner">
+            <div class="container-quiz2">
+                <div class="caixa-quadros">
+                    <div class="quadros-geral">
+
+                        <div class="quadro">
+                            <label for="quadro1">
+                                <div class="resultado" id="div_resultado1"></div>
+                                <div class="botao">
+                                    <button onclick="quadro21()">Quadro 1</button>
+                                </div>
+                            </label> 
+                        </div>
+
+                        <div class="quadro">
+                            <label for="quadro2">
+                                <div class="resultado" id="div_resultado2"></div>
+                                <div class="botao">
+                                    <button onclick="quadro22()">Quadro 2</button>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="quadro">
+                            <label for="quadro3">
+                                <div class="resultado" id="div_resultado3"></div>
+                                <div class="botao">
+                                    <button onclick="quadro23()">Quadro 3</button>
+                                </div>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> `
+    }
+
+    function quadro12() {
+        impressionismo++
+        background_geral.innerHTML = ''
+        background_geral.innerHTML = `
+        <div class="background_quiz2">
+        <!-- HEADER -->
+        <div class="header-quiz">
+            <div class="container-quiz">
+                <img src="./assets/arthamis.jpg" alt="">
+                <div class="navbar">
+                    <ul class="textos">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="quiz.html" id="li_quiz">Quiz</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- BANNER -->
+        <div class="banner">
+            <div class="container-quiz2">
+                <div class="caixa-quadros">
+                    <div class="quadros-geral">
+
+                        <div class="quadro">
+                            <label for="quadro1">
+                                <div class="resultado" id="div_resultado1"></div>
+                                <div class="botao">
+                                    <button onclick="quadro21()">Quadro 1</button>
+                                </div>
+                            </label> 
+                        </div>
+
+                        <div class="quadro">
+                            <label for="quadro2">
+                                <div class="resultado" id="div_resultado2"></div>
+                                <div class="botao">
+                                    <button onclick="quadro22()">Quadro 2</button>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="quadro">
+                            <label for="quadro3">
+                                <div class="resultado" id="div_resultado3"></div>
+                                <div class="botao">
+                                    <button onclick="quadro23()">Quadro 3</button>
+                                </div>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> `
+    }
+
+    function quadro13() {
+        renascentista++
+        background_geral.innerHTML = ''
+        background_geral.innerHTML = `
+        <div class="background_quiz2">
+        <!-- HEADER -->
+        <div class="header-quiz">
+            <div class="container-quiz">
+                <img src="./assets/arthamis.jpg" alt="">
+                <div class="navbar">
+                    <ul class="textos">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="quiz.html" id="li_quiz">Quiz</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- BANNER -->
+        <div class="banner">
+            <div class="container-quiz2">
+                <div class="caixa-quadros">
+                    <div class="quadros-geral">
+
+                        <div class="quadro">
+                            <label for="quadro1">
+                                <div class="resultado" id="div_resultado1"></div>
+                                <div class="botao">
+                                    <button onclick="quadro21()">Quadro 1</button>
+                                </div>
+                            </label> 
+                        </div>
+
+                        <div class="quadro">
+                            <label for="quadro2">
+                                <div class="resultado" id="div_resultado2"></div>
+                                <div class="botao">
+                                    <button onclick="quadro22()">Quadro 2</button>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="quadro">
+                            <label for="quadro3">
+                                <div class="resultado" id="div_resultado3"></div>
+                                <div class="botao">
+                                    <button onclick="quadro23()">Quadro 3</button>
+                                </div>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> `
+    }
+
+
+    // SEGUNDA PÁGINA
+    function quadro21() {
+        abstrato++
+        background_geral.innerHTML = ''
+        background_geral.innerHTML = `
+        <div class="background_quiz3">
+        <!-- HEADER -->
+        <div class="header-quiz">
+            <div class="container-quiz">
+                <img src="./assets/arthamis.jpg" alt="">
+                <div class="navbar">
+                    <ul class="textos">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="quiz.html" id="li_quiz">Quiz</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- BANNER -->
+        <div class="banner">
+            <div class="container-quiz2">
+                <div class="caixa-quadros">
+                    <div class="quadros-geral">
+
+                        <div class="quadro">
+                            <label for="quadro1">
+                                <div class="resultado" id="div_resultado1"></div>
+                                <div class="botao">
+                                    <button onclick="quadro31()">Quadro 1</button>
+                                </div>
+                            </label> 
+                        </div>
+
+                        <div class="quadro">
+                            <label for="quadro2">
+                                <div class="resultado" id="div_resultado2"></div>
+                                <div class="botao">
+                                    <button onclick="quadro32()">Quadro 2</button>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="quadro">
+                            <label for="quadro3">
+                                <div class="resultado" id="div_resultado3"></div>
+                                <div class="botao">
+                                    <button onclick="quadro33()">Quadro 3</button>
+                                </div>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> `
+    }
+
+    function quadro22() {
+        impressionismo++
+        background_geral.innerHTML = ''
+        background_geral.innerHTML = `
+        <div class="background_quiz3">
+        <!-- HEADER -->
+        <div class="header-quiz">
+            <div class="container-quiz">
+                <img src="./assets/arthamis.jpg" alt="">
+                <div class="navbar">
+                    <ul class="textos">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="quiz.html" id="li_quiz">Quiz</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- BANNER -->
+        <div class="banner">
+            <div class="container-quiz2">
+                <div class="caixa-quadros">
+                    <div class="quadros-geral">
+
+                        <div class="quadro">
+                            <label for="quadro1">
+                                <div class="resultado" id="div_resultado1"></div>
+                                <div class="botao">
+                                    <button onclick="quadro31()">Quadro 1</button>
+                                </div>
+                            </label> 
+                        </div>
+
+                        <div class="quadro">
+                            <label for="quadro2">
+                                <div class="resultado" id="div_resultado2"></div>
+                                <div class="botao">
+                                    <button onclick="quadro32()">Quadro 2</button>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="quadro">
+                            <label for="quadro3">
+                                <div class="resultado" id="div_resultado3"></div>
+                                <div class="botao">
+                                    <button onclick="quadro33()">Quadro 3</button>
+                                </div>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> `
+    }
+
+    function quadro23() {
+        renascentista++
+        background_geral.innerHTML = ''
+        background_geral.innerHTML = `
+        <div class="background_quiz3">
+        <!-- HEADER -->
+        <div class="header-quiz">
+            <div class="container-quiz">
+                <img src="./assets/arthamis.jpg" alt="">
+                <div class="navbar">
+                    <ul class="textos">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="quiz.html" id="li_quiz">Quiz</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- BANNER -->
+        <div class="banner">
+            <div class="container-quiz2">
+                <div class="caixa-quadros">
+                    <div class="quadros-geral">
+
+                        <div class="quadro">
+                            <label for="quadro1">
+                                <div class="resultado" id="div_resultado1"></div>
+                                <div class="botao">
+                                    <button onclick="quadro31()">Quadro 1</button>
+                                </div>
+                            </label> 
+                        </div>
+
+                        <div class="quadro">
+                            <label for="quadro2">
+                                <div class="resultado" id="div_resultado2"></div>
+                                <div class="botao">
+                                    <button onclick="quadro32()">Quadro 2</button>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="quadro">
+                            <label for="quadro3">
+                                <div class="resultado" id="div_resultado3"></div>
+                                <div class="botao">
+                                    <button onclick="quadro33()">Quadro 3</button>
+                                </div>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> `
+    }
+
+    // TERCEIRA PÁGINA
+
+    function quadro31() {
+        abstrato++
+        background_geral.innerHTML = ''
+        background_geral.innerHTML = `
+        <div class="background_quiz_final">
+        <!-- HEADER -->
+        <div class="header-quiz">
+            <div class="container-quiz">
+                <img src="./assets/arthamis.jpg" alt="">
+                <div class="navbar">
+                    <ul class="textos">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="quiz.html" id="li_quiz">Quiz</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- BANNER -->
+        <div class="banner">
+            <div class="container-quiz2">
+                <div class="caixa-quadros">
+                    <div class="quadros-geral">
+
+                        <div class="quadro_final">
+                            <div id="final_imagem"></div>
+                            <div id="resultado_abstrato">  Quadros abstratos: </div>
+                            <div id="resultado_impressionismo">  Quadros impressionistas: </div>
+                            <div id="resultado_renascentista">  Quadros renascentistas: </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`
+
+    resultado_abstrato.innerHTML += abstrato
+    resultado_impressionismo.innerHTML += impressionismo
+    resultado_renascentista.innerHTML += renascentista
+
+    if (abstrato >=2){
+        final_imagem.innerHTML += `<img style="height: 200px;" src="./assets/abstrato.png" alt="">`
+    } else if (impressionismo >=2){
+        final_imagem.innerHTML += `<img style="height: 200px;" src="./assets/impressionismo.png" alt="">`
+    } else if (renascentista >=2) {
+        final_imagem.innerHTML += `<img style="height: 200px;" src="./assets/renascentista.png" alt="">`
+    } else {
+        final_imagem.innerHTML += `<img style="height: 200px;" src="./assets/diferente.jpg" alt="">`
+    }
+    }
+
+    function quadro32() {
+        impressionismo++
+        background_geral.innerHTML = ''
+        background_geral.innerHTML = `
+        <div class="background_quiz_final">
+        <!-- HEADER -->
+        <div class="header-quiz">
+            <div class="container-quiz">
+                <img src="./assets/arthamis.jpg" alt="">
+                <div class="navbar">
+                    <ul class="textos">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="quiz.html" id="li_quiz">Quiz</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- BANNER -->
+        <div class="banner">
+            <div class="container-quiz2">
+                <div class="caixa-quadros">
+                    <div class="quadros-geral">
+
+                        <div class="quadro_final">
+                            <div id="final_imagem"></div>
+                            <div id="resultado_abstrato">  Quadros abstratos: </div>
+                            <div id="resultado_impressionismo">  Quadros impressionistas: </div>
+                            <div id="resultado_renascentista">  Quadros renascentistas: </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> `
+
+    resultado_abstrato.innerHTML += abstrato
+    resultado_impressionismo.innerHTML += impressionismo
+    resultado_renascentista.innerHTML += renascentista
+
+    if (abstrato >=2){
+        final_imagem.innerHTML += `<img style="height: 200px;" src="./assets/abstrato.png" alt="">`
+    } else if (impressionismo >=2){
+        final_imagem.innerHTML += `<img style="height: 200px;" src="./assets/impressionismo.png" alt="">`
+    } else if (renascentista >=2) {
+        final_imagem.innerHTML += `<img style="height: 200px;" src="./assets/renascentista.png" alt="">`
+    } else {
+        final_imagem.innerHTML += `<img style="height: 200px;" src="./assets/diferente.jpg" alt="">`
+    }
+    
+    }
+
+    function quadro33() {
+        renascentista++
+        background_geral.innerHTML = ''
+        background_geral.innerHTML = `
+        <div class="background_quiz_final">
+        <!-- HEADER -->
+        <div class="header-quiz">
+            <div class="container-quiz">
+                <img src="./assets/arthamis.jpg" alt="">
+                <div class="navbar">
+                    <ul class="textos">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="quiz.html" id="li_quiz">Quiz</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- BANNER -->
+        <div class="banner">
+            <div class="container-quiz2">
+                <div class="caixa-quadros">
+                    <div class="quadros-geral">
+
+                        <div class="quadro_final">
+                            <div id="final_imagem"></div>
+                            <div id="resultado_abstrato">  Quadros abstratos: </div>
+                            <div id="resultado_impressionismo">  Quadros impressionistas: </div>
+                            <div id="resultado_renascentista">  Quadros renascentistas: </div>
+                            <div id="final_imagem"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`
+
+    resultado_abstrato.innerHTML += abstrato
+    resultado_impressionismo.innerHTML += impressionismo
+    resultado_renascentista.innerHTML += renascentista
+
+    if (abstrato >=2){
+        final_imagem.innerHTML += `<img style="height: 200px;" src="./assets/abstrato.png" alt="">`
+    } else if (impressionismo >=2){
+        final_imagem.innerHTML += `<img style="height: 200px;" src="./assets/impressionismo.png" alt="">`
+    } else if (renascentista >=2) {
+        final_imagem.innerHTML += `<img style="height: 200px;" src="./assets/renascentista.png" alt="">`
+    } else {
+        final_imagem.innerHTML += `<img style="height: 200px;" src="./assets/diferente.jpg" alt="">`
+    }
+
+
+    }
+
+</script>
+
+
+

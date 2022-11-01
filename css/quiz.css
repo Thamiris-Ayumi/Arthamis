@@ -3,7 +3,6 @@
 * {
     padding: 0;
     margin: 0;
-    color: black;
     box-sizing: border-box;
 }
 
@@ -31,10 +30,34 @@ body::-webkit-scrollbar-thumb {
 
 /* BACKGROUND */
 
-.background-quiz {
+.background_quiz {
+    background-image: url("../assets/quiz1.png");
+    width: 100%;
+    height: 115vh;
+    background-size: cover;
+    mix-blend-mode: normal;
+}
+
+.background_quiz2 {
+    background-image: url("../assets/quiz2.png");
+    width: 100%;
+    height: 115vh;
+    background-size: cover;
+    mix-blend-mode: normal;
+}
+
+.background_quiz3{
+    background-image: url("../assets/quiz3.png");
+    width: 100%;
+    height: 115vh;
+    background-size: cover;
+    mix-blend-mode: normal;
+}
+
+.background_quiz_final{
     background-image: url("../assets/background-quiz.png");
     width: 100%;
-    height: 100%;
+    height: 700px;
     background-size: cover;
     mix-blend-mode: normal;
 }
@@ -60,7 +83,7 @@ body::-webkit-scrollbar-thumb {
     height: 50px;
 }
 
-#li_quiz{
+#li_quiz {
     color: #CB6CE6;
 }
 
@@ -71,7 +94,7 @@ body::-webkit-scrollbar-thumb {
     width: 400px;
     list-style: none;
     font-weight: 600;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .textos li {
@@ -104,4 +127,140 @@ a {
     color: white;
     text-decoration: none;
     font-size: larger;
+}
+
+
+/* BANNER */
+
+.banner .container-quiz2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.caixa-quadros {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 500px;
+}
+
+.quadros-geral {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 100px;
+    padding-right: 100px;
+}
+
+.quadro {
+    /* background-color: white; */
+    margin-top: 30vh;
+    padding: 60px;
+    width: 250px;
+    height: 300px;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 250px;
+    border-radius: 10px;
+    margin-bottom: 150px;
+    
+}
+
+.quadro img {
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    height: 200px;
+    padding-top: 7px;
+}
+
+.quadro_final {
+    background-color: white;
+    margin-top: 8vh;
+    padding: 50px;
+    width: 800px;
+    height: 370px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 150px;
+    border-radius: 10px;
+    margin-bottom: 150px;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+/* BOTÃO */
+.botao button {
+    margin-top: 150px;
+    margin-right: 130px;
+    width: 160px;
+    color: #FFFFFF;
+    background-color: #CB6CE6;
+    padding: 10px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.botao button:hover {
+    opacity: 0.8;
+}
+
+/* --FOOTER--*/
+
+.footer {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("../assets/Imagem\ 4.jpg");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-top: 3px solid #CB6CE6;
+}
+
+.footer p {
+    color: rgb(206, 206, 206);
+    padding-top: 17px;
+    font-size: 12px;
+}
+
+
+.footer .container-quiz {
+    padding: 30px 10px;
+    justify-content: space-around;
+    margin: auto;
+
+}
+
+.media img {
+    margin-top: 7px;
+    height: 25px;
+    width: 25px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.media h4 {
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 5px;
+    cursor: default;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.copyright p {
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }

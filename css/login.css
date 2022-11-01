@@ -231,7 +231,7 @@ a {
 
 .media {
     width: 180px;
-    margin-left: 260px;
+    margin-left: 200px;
     display: flex;
     justify-content: space-around;
 }
