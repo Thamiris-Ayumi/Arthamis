@@ -29,11 +29,18 @@ body::-webkit-scrollbar-thumb {
 
 
 /* BACKGROUND */
+.background_quiz_inicial {
+    background-image: url("../assets/background_quiz.png");
+    width: 100%;
+    height: 113vh;
+    background-size: cover;
+    mix-blend-mode: normal;
+}
 
 .background_quiz {
     background-image: url("../assets/quiz1.png");
     width: 100%;
-    height: 115vh;
+    height: 113vh;
     background-size: cover;
     mix-blend-mode: normal;
 }
@@ -41,7 +48,7 @@ body::-webkit-scrollbar-thumb {
 .background_quiz2 {
     background-image: url("../assets/quiz2.png");
     width: 100%;
-    height: 115vh;
+    height: 113vh;
     background-size: cover;
     mix-blend-mode: normal;
 }
@@ -49,7 +56,7 @@ body::-webkit-scrollbar-thumb {
 .background_quiz3{
     background-image: url("../assets/quiz3.png");
     width: 100%;
-    height: 115vh;
+    height: 113vh;
     background-size: cover;
     mix-blend-mode: normal;
 }
@@ -57,7 +64,7 @@ body::-webkit-scrollbar-thumb {
 .background_quiz_final{
     background-image: url("../assets/background-quiz.png");
     width: 100%;
-    height: 700px;
+    height: 113vh;
     background-size: cover;
     mix-blend-mode: normal;
 }
@@ -175,12 +182,12 @@ a {
     padding-top: 7px;
 }
 
-.quadro_final {
-    background-color: white;
-    margin-top: 8vh;
+.quadro_inicial {
+    background-image: url("../assets/purple-glitter.gif");
+    margin-top: 10vh;
     padding: 50px;
     width: 800px;
-    height: 370px;
+    height: 400px;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -192,6 +199,56 @@ a {
     font-size: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+h4 {
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* BOTÃO INICIAR */
+
+.botao_iniciar button {
+    margin-top: 30px;
+    width: 200px;
+    color: #FFFFFF;
+    background-color: #CB6CE6;
+    padding: 10px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.botao_iniciar button:hover {
+    border: 2px solid #cb6ce6;
+    box-shadow: white 0px 0px 12px 1px inset,
+                #cb6ce6 0px 0px 12px 1px;
+    border-radius: 5px;
+}
+
+.quadro_final {
+    background-color: white;
+    margin-top: 8vh;
+    padding: 50px;
+    width: 800px;
+    height: 370px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 200px;
+    border-radius: 10px;
+    margin-bottom: 150px;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 
 
 /* BOTÃO */

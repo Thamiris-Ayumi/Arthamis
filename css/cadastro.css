@@ -135,6 +135,7 @@ a {
     font-weight: bold;
     display: flex;
     justify-content: center;
+    text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
 
