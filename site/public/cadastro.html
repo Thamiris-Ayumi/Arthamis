@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/cadastro.css">
-    <link rel="Logo icon" href="./assets/loguinho.png">
+    
+    <title>Arthamis | Cadastro</title>
+    
     <script src="./js/funcoes.js"></script>
-    <title>Cadastro</title>
+
+    <link rel="Logo icon" href="./assets/loguinho.png">
+    <link rel="stylesheet" href="./css/cadastro.css">
 </head>
 
 <body>
@@ -19,7 +22,7 @@
                 <img src="./assets/arthamis.jpg" alt="">
                 <div class="navbar">
                     <ul class="textos">
-                        <li><a href="home.html">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="quiz.html">Quiz</a></li>
                         <li><a href="login.html">Login</a></li>
                         <li><a href="cadastro.html" id="li_cadastro">Cadastro</a></li>
@@ -30,6 +33,11 @@
 
         <!-- BANNER -->
         <div class="banner">
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
             <div class="container">
                 <div class="caixa-formulario">
                     <h3>Cadastre-se aqui e saiba mais sobre os estilos de arte!</h3>
@@ -71,6 +79,14 @@
                     <div class="botao">
                         <button onclick="cadastrar()">Cadastrar</button>
                     </div>
+
+                    <!-- alterei daqui -->
+                    <div id="div_aguardar" class="loading-div">
+                        <img src="./assets/circle-loading.gif" id="loading-gif">
+                    </div>
+
+                    <div id="div_erros_login"></div>
+                    <!-- até aqui -->
                 </div>
             </div>
         </div>

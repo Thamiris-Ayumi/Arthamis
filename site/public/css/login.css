@@ -263,3 +263,32 @@ a {
     color: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+
+
+/* ALTERAÇÕES DA API */
+
+
+
+/* LOGIN */
+
+.banner .container .card {
+    background-color: #e5e5e5;
+    height: fit-content;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    color: palevioletred;
+    align-items: center;
+    border-radius: 4px;
+  }
+  
+  
+  .banner #div_erros_login {
+    margin-top: 15px;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
