@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,7 @@
         <div class="container_header">
             <div class="texto">
                 <img class="user" src="./assets/user.png" alt="">
-                <h1>Olá, Usuário!</h1>
+                <h1>Olá,<span id="b_usuario">Usuário</span></h1>
             </div>
             <img class="logo" src="./assets/arthamis.jpg" alt="" width="200px">
         </div>
@@ -30,7 +30,7 @@
             <ul>
                 <li><a href="dashboard.html"><img src="./assets/paint.png" height="30px;"></li></a>
                 <li><a href="dashboard-museu.html"><img src="./assets/museum.png" height="30px;"></li></a>
-                <li><a href="dashboard.html"><img src="./assets/settings.png" height="30px;"></li></a>
+                <li><a href="dashboard-config.html"><img src="./assets/settings.png" height="30px;"></li></a>
                 <li><a href="index.html"><img src="./assets/porta.png"></li></a>
             </ul>
         </aside>
@@ -58,6 +58,8 @@
 </html>
 
 <script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
     var estilo = []
 
     function salvar() {
