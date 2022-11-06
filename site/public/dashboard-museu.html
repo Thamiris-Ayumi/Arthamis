@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dashboard-museu.css">
+    <link rel="Logo icon" href="./assets/loguinho.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Dashboard | Configurações</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div class="header">
+        <div class="container_header">
+            <div class="texto">
+                <img class="user" src="./assets/user.png" alt="">
+                <h1>Olá,<span id="b_usuario">Usuário</span></h1>
+            </div>
+            <img class="logo" src="./assets/arthamis.jpg" alt="" width="200px">
+        </div>
+    </div>
+
+
+    <!-- NAVBAR -->
+    <div id="div_resultado" class="container_nav">
+        <aside class="navbar">
+            <ul>
+                <li><a href="dashboard.html"><img src="./assets/paint.png" height="30px;"></li></a>
+                <li><a href="dashboard-museu.html"><img src="./assets/museum.png" height="30px;"></li></a>
+                <li><a href="dashboard-config.html"><img src="./assets/settings.png" height="30px;"></li></a>
+                <li><a href="index.html"><img src="./assets/porta.png"></li></a>
+            </ul>
+        </aside>
+
+        <aside>
+            <div class="container_form">
+                <div class="caixa-formulario">
+                    <h3 style="margin-left:20px;">Conte-nos sobre um museu que você visitou:</h3>
+
+                    <div class="caixa-formulario-ipt">
+
+                        <div class="campo">
+                            <label for="nome">Museu / Exposição de arte
+                                <input type="text" placeholder="Digite o nome do museu" id="in_nome">
+                            </label>
+                        </div>
+
+                        <div class="campo">
+                            <label for="nome">Cidade
+                                <input type="text" placeholder="Digite a cidade onde está localizado" id="in_cidade">
+                            </label>
+                        </div>
+
+                        <div class="campo">
+                            <label for="cep">CEP
+                                <input type="text" placeholder="Digite o CEP" id="in_cep">
+                            </label>
+                        </div>
+
+                        <div class="campo">
+                            <label for="comentario">Comentário
+                                <input type="text" placeholder="Conte um pouco da sua experiência!" id="in_comentario">
+                            </label>
+                        </div>
+
+                        <div class="campo">
+                            <label for="avaliar">Avaliação
+                                <select name="" id="sel_nota">
+                                    <option id="opt_avaliar" value=""> Avalie de 1 a 5 ⭐</option>
+                                    <option id="opt_avaliar" value="1">1</option>
+                                    <option id="opt_avaliar" value="2">2</option>
+                                    <option id="opt_avaliar" value="3">3</option>
+                                    <option id="opt_avaliar" value="4">4</option>
+                                    <option id="opt_avaliar" value="5">5</option>
+                                </select>
+                                <div id="div_resultado2"></div>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="botao">
+                        <button onclick="pesquisar()">Enviar</button>
+                    </div>
+
+                </div>
+                
+            </div>
+
+            <div class="caixa-formulario2">
+                <h3>Veja também se outros usuários já visitaram o mesmo museu que você!</h3><br><br>
+                <h4>Museu / Exposição artística: <b id="b_nome"></b></h4><br><br>
+                <div class="mapa" id="div_mapa"></div>
+                <div id="div_pesquisa"></div>
+            </div>
+                
+        </aside>
+        
+    </div>
+
+    
+    <footer> Copyright &copy; 2022 Arthamis - All rights reserved </footer>
+    
+</body>
+</html>
+
+<script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    
+    var lista = ['louvre']
+
+    
+    function pesquisar() {
+        
+        div_pesquisa.innerHTML = ''
+        div_mapa.innerHTML = ''
+        
+        // FUNÇÃO DE AVALIAR E APARECER ESTRELAS
+        div_resultado2.innerHTML = ''
+        var avaliar = Number(sel_nota.value)
+        
+        for(var contador = 0; contador < avaliar; contador++){
+            div_resultado2.innerHTML += `<img style="height:40px ;" src="./assets/golden-star.png" alt="">`
+        }
+        // FIM - FUNÇÃO ESTRELAS
+        
+
+
+        // FUNÇÃO DE PESQUISAR NA LISTA O NOME DOS MUSEUS
+        var nome = in_nome.value
+        var resultado = lista.indexOf(nome)
+
+        if (resultado < 0 ){
+            b_nome.innerHTML = `${nome}`
+            frase = `O museu ${nome} ainda não está cadastrado na lista.`
+        } else {
+            frase = `Outras pessoas que já visitaram o mesmo museu:`
+            b_nome.innerHTML = `${nome}`
+            if (nome == 'louvre'){
+            div_mapa.innerHTML = `<iframe id="iframe_mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.4483278365396!2d-46.63466568562861!3d-23.588249068469487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5a2b2ed7f3a1%3A0xab35da2f5ca62674!2sCaelum!5e0!3m2!1spt-BR!2sbr!4v1568814489656!5m2!1spt-BR!2sbr" frameborder="0"></iframe>`
+            }
+        }
+
+        div_pesquisa.innerHTML = frase
+    
+    }
+    
+</script>
+
