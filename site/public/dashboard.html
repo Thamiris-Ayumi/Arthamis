@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="Logo icon" href="./assets/loguinho.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Dashboard</title>
 </head>
 
@@ -25,13 +26,13 @@
 
 
     <!-- NAVBAR -->
-    <div id="div_resultado" class="container_nav">
+    <div class="container_nav">
         <aside class="navbar">
             <ul>
-                <li><a href="dashboard.html"><img src="./assets/paint.png" height="30px;"></li></a>
-                <li><a href="dashboard-museu.html"><img src="./assets/museum.png" height="30px;"></li></a>
-                <li><a href="dashboard-config.html"><img src="./assets/settings.png" height="30px;"></li></a>
-                <li><a href="index.html"><img src="./assets/porta.png"></li></a>
+                <li><a href="dashboard.html"><img src="./assets/paint.png" height="30px;"></li><p>Dashboard</p></a>
+                <li><a href="dashboard-museu.html"><img src="./assets/museum.png" height="30px;"></li><p>Museus</p></a>
+                <li><a href="dashboard-config.html"><img src="./assets/settings.png" height="30px;"></li><p>Configurações</p></a>
+                <li><a href="index.html"><img src="./assets/porta.png"></li><p>Sair</p></a>
             </ul>
         </aside>
 
@@ -44,9 +45,18 @@
                 Total de estilos preferidos: <b id="b_total">0</b> 
                 <br><br><br>
                 1° estilo de arte preferido: <b id="b_primeiro"></b><br>
-                Último estilo de arte preferido: <b id="b_ultima"></b>
+                Último estilo de arte preferido: <b id="b_ultima"></b><br><br>
             </div>
+
+                <!-- GRÁFICO -->
+                <div>
+                    <canvas id="myChart2" style="position: relative; height:3vh; width:70px; background-color: aliceblue;"></canvas>
+                </div>
+
+            </div>
+
         </div>
+
 
     </div>
     </div>
@@ -70,30 +80,43 @@
         b_primeiro.innerHTML = estilo[0]
         b_ultima.innerHTML = estilo[estilo.length - 1]
 
-        div_resultado.innerHTML += `<div class="caixas">
-            <div class="alinhamento1">
-
-                <div class="caixa1">
-                    <h2 class="campo_branco">Usuários que gostam de arte Abstrata</h2>
-                    <h2 class="numerob">10</h2>
-                </div>
-
-                <div class="caixa1">
-                    <h2 class="campo_branco">Usuários que gostam de arte Impressionista</h2>
-                    <h2 class="numerob">10</h2>
-                </div>
-
-                <div class="caixa1">
-                    <h2 class="campo_branco">Usuários que gostam de arte Renascentista</h2>
-                    <h2 class="numerob">10</h2>
-                </div>
-
-                <div class="caixa1">
-                    <h2 class="campo_branco">Usuários que gostam de diferentes estilos</h2>
-                    <h2 class="numerob">10</h2>
-                </div>
-            </div>
-
-        </div>`
     }
+</script>
+
+<script>
+    // Gráfico (barras)
+    const labels2 = [
+        'Abstrata',
+        'Impressionista',
+        'Renascentista',
+        'Variado',
+        'Contemporânea',
+        'Cubista',
+    ];
+
+    const data2 = {
+        labels: labels2,
+        datasets: [{
+            label: 'Estilo de arte',
+            backgroundColor: 'rgb(200, 50, 200)',
+            borderColor: 'rgb(50, 153, 204)',
+            data: [11, 19, 18, 7, 10, 3],
+        }
+        
+    ]
+    };
+
+    const config2 = {
+        type: 'bar',
+        data: data2,
+        options: {}
+    };
+
+// Código responsável pela renderização das informações
+
+
+const myChart2 = new Chart(
+    document.getElementById('myChart2'),
+    config2
+);
 </script>

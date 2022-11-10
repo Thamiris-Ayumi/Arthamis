@@ -108,6 +108,30 @@ body {
     position: fixed;
 }
 
+.navbar p {
+    display: none;
+    justify-content: space-around;
+    margin-left: 200px;   
+}
+
+.navbar a {
+    list-style: none;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.navbar:hover {
+    width: 400px;
+}
+
+.navbar:hover p {
+    margin-bottom: 90px;
+    display: block;
+    margin-top: -20px;
+    display: flex;
+    justify-content: center;
+}
+
 aside {
     display: flex;
     justify-content: center;

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/dashboard-museu.css">
     <link rel="Logo icon" href="./assets/loguinho.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Dashboard | Configurações</title>
+    <title>Dashboard | Museus</title>
 </head>
 
 <body>
@@ -28,10 +28,10 @@
     <div id="div_resultado" class="container_nav">
         <aside class="navbar">
             <ul>
-                <li><a href="dashboard.html"><img src="./assets/paint.png" height="30px;"></li></a>
-                <li><a href="dashboard-museu.html"><img src="./assets/museum.png" height="30px;"></li></a>
-                <li><a href="dashboard-config.html"><img src="./assets/settings.png" height="30px;"></li></a>
-                <li><a href="index.html"><img src="./assets/porta.png"></li></a>
+                <li><a href="dashboard.html"><img src="./assets/paint.png" height="30px;"></li><p>Dashboard</p></a>
+                <li><a href="dashboard-museu.html"><img src="./assets/museum.png" height="30px;"></li><p>Museus</p></a>
+                <li><a href="dashboard-config.html"><img src="./assets/settings.png" height="30px;"></li><p>Configurações</p></a>
+                <li><a href="index.html"><img src="./assets/porta.png"></li><p>Sair</p></a>
             </ul>
         </aside>
 
@@ -48,17 +48,7 @@
                             </label>
                         </div>
 
-                        <div class="campo">
-                            <label for="nome">Cidade
-                                <input type="text" placeholder="Digite a cidade onde está localizado" id="in_cidade">
-                            </label>
-                        </div>
-
-                        <div class="campo">
-                            <label for="cep">CEP
-                                <input type="text" placeholder="Digite o CEP" id="in_cep">
-                            </label>
-                        </div>
+                        <div id="div_imagem"></div>
 
                         <div class="campo">
                             <label for="comentario">Comentário
@@ -109,7 +99,7 @@
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     
-    var lista = ['louvre']
+    var lista = ['masp', 'pinacoteca', 'museu da imagem e do som', 'catavento', 'museu do ipiranga', 'museu da imigração']
 
     
     function pesquisar() {
@@ -129,7 +119,7 @@
 
 
         // FUNÇÃO DE PESQUISAR NA LISTA O NOME DOS MUSEUS
-        var nome = in_nome.value
+        var nome = (in_nome.value).toLowerCase()
         var resultado = lista.indexOf(nome)
 
         if (resultado < 0 ){
@@ -138,8 +128,26 @@
         } else {
             frase = `Outras pessoas que já visitaram o mesmo museu:`
             b_nome.innerHTML = `${nome}`
-            if (nome == 'louvre'){
-            div_mapa.innerHTML = `<iframe id="iframe_mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.4483278365396!2d-46.63466568562861!3d-23.588249068469487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5a2b2ed7f3a1%3A0xab35da2f5ca62674!2sCaelum!5e0!3m2!1spt-BR!2sbr!4v1568814489656!5m2!1spt-BR!2sbr" frameborder="0"></iframe>`
+
+
+            if (resultado == 0){
+                div_mapa.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14628.782787138132!2d-46.6558819!3d-23.561414!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe904f6a669744da1!2sMuseu%20de%20Arte%20de%20S%C3%A3o%20Paulo%20Assis%20Chateaubriand!5e0!3m2!1spt-BR!2sbr!4v1667766041840!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+                div_imagem.innerHTML = `<img id="imagem_museu" style="height:200px ;" src="./assets/masp.jpg" alt="">`
+            } else if (resultado == 1){
+                div_mapa.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.944981390382!2d-46.636201185099594!3d-23.53448118469619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59545481d0fd%3A0xb06333a01a39849b!2sPinacoteca%20da%20cidade%20de%20S%C3%A3o%20Paulo!5e0!3m2!1spt-BR!2sbr!4v1667766373629!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+                div_imagem.innerHTML = `<img id="imagem_museu" style="height:200px ;" src="./assets/pinacoteca.jpg" alt="">`
+            } else if (resultado == 2){
+                div_mapa.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.8798511374757!2d-46.678347285098866!3d-23.572758284677164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5764ba70b965%3A0x94b834e23de5d4c1!2sMuseu%20da%20Imagem%20e%20do%20Som!5e0!3m2!1spt-BR!2sbr!4v1667766826008!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>` 
+                div_imagem.innerHTML = `<img id="imagem_museu" style="height:200px ;" src="./assets/imagem&som.jpg" alt="">`
+            } else if (resultado == 3){
+                div_mapa.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29261.351295622484!2d-46.66237112089844!3d-23.544407800000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce58fe6597b5ab%3A0xb5320d52c494e282!2sMuseu%20Catavento!5e0!3m2!1spt-BR!2sbr!4v1667766987564!5m2!1spt-BR!2sbr"  style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+                div_imagem.innerHTML = `<img id="imagem_museu" style="height:200px ;" src="./assets/catavento.jpeg" alt="">`
+            } else if (resultado == 4){
+                div_mapa.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.5228549963294!2d-46.61190328532607!3d-23.585574384670814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5b4931fee653%3A0x6a2a2528e3fe6253!2sMuseu%20do%20Ipiranga!5e0!3m2!1spt-BR!2sbr!4v1667767722406!5m2!1spt-BR!2sbr"  style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+                div_imagem.innerHTML = `<img id="imagem_museu" style="height:200px ;" src="./assets/ipiranga.jpg" alt="">`
+            } else if (resultado == 5){
+                div_mapa.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14629.44328937629!2d-46.632667474567796!3d-23.555481104970955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59183e6995d9%3A0xb81274e7cb4408c5!2sMuseu%20da%20Imigra%C3%A7%C3%A3o%20do%20Estado%20de%20S%C3%A3o%20Paulo!5e0!3m2!1spt-BR!2sbr!4v1667768152812!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+                div_imagem.innerHTML = `<img id="imagem_museu" style="height:200px ;" src="./assets/imigracao.jpg" alt="">`
             }
         }
 
