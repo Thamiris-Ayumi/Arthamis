@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/loguinho.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthamis | Museus</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="dashboards.css">
+    <!-- <link rel="stylesheet" href="../css/dashboard-museu.css"> -->
+
+    <script src="../js/funcoes.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body onload="validarSessao(), atualizacaoPeriodica()">
+
+    <div class="janela">
+
+
+        <div class="header-left dash-header">
+
+            <img class="logo" src="/assets/arthamis.jpg" alt="" width="200px">
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="btn-nav">
+                <h3>Museus</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./dashboard.html">
+                    <h3>Gráficos</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./mural.html">
+                    <h3>Comentário</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout" >
+                <a href="/index.html">
+                    <h3>Sair</h3>
+                </a>
+            </div>
+
+        </div>
+    
+
+
+
+        <aside>
+            <div class="container_form">
+                <div class="caixa-formulario">
+                    <h3 style="margin-left:20px;">Conte-nos sobre um museu que você visitou:</h3>
+
+                    <div class="caixa-formulario-ipt">
+
+                        <div class="campo">
+                            <label for="nome">Museu / Exposição de arte
+                                <input type="text" placeholder="Digite o nome do museu" id="in_nome">
+                            </label>
+                        </div>
+
+                        <div id="div_imagem"></div>
+
+                        <div class="campo">
+                            <label for="comentario">Comentário
+                                <input type="text" placeholder="Conte um pouco da sua experiência!" id="in_comentario">
+                            </label>
+                        </div>
+
+                        <div class="campo">
+                            <label for="avaliar">Avaliação
+                                <select name="" id="sel_nota">
+                                    <option id="opt_avaliar" value=""> Avalie de 1 a 5 ⭐</option>
+                                    <option id="opt_avaliar" value="1">1</option>
+                                    <option id="opt_avaliar" value="2">2</option>
+                                    <option id="opt_avaliar" value="3">3</option>
+                                    <option id="opt_avaliar" value="4">4</option>
+                                    <option id="opt_avaliar" value="5">5</option>
+                                </select>
+                                <div id="div_resultado2"></div>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="botao">
+                        <button onclick="pesquisar()">Enviar</button>
+                    </div>
+
+                </div>
+                
+            </div>
+            <div class="caixa-formulario2">
+                <h3>Veja também se outros usuários já visitaram o mesmo museu que você!</h3><br><br>
+                <h4>Museu / Exposição artística: <b id="b_nome"></b></h4><br><br>
+                <div class="mapa" id="div_mapa"></div>
+                <div style="color: white;" id="div_pesquisa"></div>
+            </div>
+
+                
+        </aside>
+    </div>
+</body>
+
+</html>
+
+<script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    
+    var lista = ['masp', 'pinacoteca', 'museu da imagem e do som', 'catavento', 'museu do ipiranga', 'museu da imigração']
+
+    
+    function pesquisar() {
+        
+        div_pesquisa.innerHTML = ''
+        div_mapa.innerHTML = ''
+        
+        // FUNÇÃO DE AVALIAR E APARECER ESTRELAS
+        div_resultado2.innerHTML = ''
+        var avaliar = Number(sel_nota.value)
+        
+        for(var contador = 0; contador < avaliar; contador++){
+            div_resultado2.innerHTML += `<img style="height:40px ;" src="/assets/golden-star.png" alt="">`
+        }
+        // FIM - FUNÇÃO ESTRELAS
+        
+
+
+        // FUNÇÃO DE PESQUISAR NA LISTA O NOME DOS MUSEUS
+        var nome = (in_nome.value).toLowerCase()
+        var resultado = lista.indexOf(nome)
+
+        if (resultado < 0 ){
+            b_nome.innerHTML = `${nome}`
+            frase = `O museu ${nome} ainda não está cadastrado na lista.`
+        } else {
+            frase = `Outras pessoas que já visitaram o mesmo museu:`
+            b_nome.innerHTML = `${nome}`
+
+
+            if (resultado == 0){
+                div_mapa.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14628.782787138132!2d-46.6558819!3d-23.561414!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe904f6a669744da1!2sMuseu%20de%20Arte%20de%20S%C3%A3o%20Paulo%20Assis%20Chateaubriand!5e0!3m2!1spt-BR!2sbr!4v1667766041840!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+                div_imagem.innerHTML = `<img id="imagem_museu" style="height:200px ;" src="/assets/masp.jpg" alt="">`
+            } else if (resultado == 1){
+                div_mapa.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.944981390382!2d-46.636201185099594!3d-23.53448118469619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59545481d0fd%3A0xb06333a01a39849b!2sPinacoteca%20da%20cidade%20de%20S%C3%A3o%20Paulo!5e0!3m2!1spt-BR!2sbr!4v1667766373629!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+                div_imagem.innerHTML = `<img id="imagem_museu" style="height:200px ;" src="/assets/pinacoteca.jpg" alt="">`
+            } else if (resultado == 2){
+                div_mapa.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.8798511374757!2d-46.678347285098866!3d-23.572758284677164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5764ba70b965%3A0x94b834e23de5d4c1!2sMuseu%20da%20Imagem%20e%20do%20Som!5e0!3m2!1spt-BR!2sbr!4v1667766826008!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>` 
+                div_imagem.innerHTML = `<img id="imagem_museu" style="height:200px ;" src="/assets/imagem&som.jpg" alt="">`
+            } else if (resultado == 3){
+                div_mapa.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29261.351295622484!2d-46.66237112089844!3d-23.544407800000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce58fe6597b5ab%3A0xb5320d52c494e282!2sMuseu%20Catavento!5e0!3m2!1spt-BR!2sbr!4v1667766987564!5m2!1spt-BR!2sbr"  style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+                div_imagem.innerHTML = `<img id="imagem_museu" style="height:200px ;" src="/assets/catavento.jpeg" alt="">`
+            } else if (resultado == 4){
+                div_mapa.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.5228549963294!2d-46.61190328532607!3d-23.585574384670814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5b4931fee653%3A0x6a2a2528e3fe6253!2sMuseu%20do%20Ipiranga!5e0!3m2!1spt-BR!2sbr!4v1667767722406!5m2!1spt-BR!2sbr"  style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+                div_imagem.innerHTML = `<img id="imagem_museu" style="height:200px ;" src="/assets/ipiranga.jpg" alt="">`
+            } else if (resultado == 5){
+                div_mapa.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14629.44328937629!2d-46.632667474567796!3d-23.555481104970955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59183e6995d9%3A0xb81274e7cb4408c5!2sMuseu%20da%20Imigra%C3%A7%C3%A3o%20do%20Estado%20de%20S%C3%A3o%20Paulo!5e0!3m2!1spt-BR!2sbr!4v1667768152812!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+                div_imagem.innerHTML = `<img id="imagem_museu" style="height:200px ;" src="/assets/imigracao.jpg" alt="">`
+            }
+        }
+
+        div_pesquisa.innerHTML = frase
+    
+    }
+    
+</script>
