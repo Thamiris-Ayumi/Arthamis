@@ -37,7 +37,7 @@
         </aside>
 
         <div class="input">
-            <h2>Digite o nome do seu estilo artístico preferido atual:</h2>
+            <!-- <h2>Digite o nome do seu estilo artístico preferido atual:</h2>
             <input id="input_paint" type="text">
             <button onclick="salvar()">Salvar estilo</button>
 
@@ -46,11 +46,17 @@
                 <br><br><br>
                 1° estilo de arte preferido: <b id="b_primeiro"></b><br>
                 Último estilo de arte preferido: <b id="b_ultima"></b><br><br>
-            </div>
+            </div> -->
 
                 <!-- GRÁFICO -->
                 <div>
-                    <canvas id="myChart2" style="position: relative; height:3vh; width:70px; background-color: aliceblue;"></canvas>
+                    <h2>Estilos de arte preferidos dos usuários</h2>
+                    <canvas id="myChart2" style="position: relative; height:8px; width:35px; background-color: aliceblue;"></canvas>
+                </div><br><br>
+
+                <div>
+                    <h2>Visitas na página no dia de hoje</h2>
+                    <canvas id="myChart" style="position: relative; height:8px; width: 35px; background-color: aliceblue;"></canvas>
                 </div>
 
             </div>
@@ -84,12 +90,42 @@
 </script>
 
 <script>
+
+    // Gráfico 1 (linhas)
+    const labels = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Quantidade de Usuários',
+            backgroundColor: 'rgb(50, 153, 204)',
+            borderColor: 'rgb(50, 153, 204)',
+            data: [10, 22, 18, 5, 10, 13],
+        }
+    ]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+
+
+
     // Gráfico (barras)
     const labels2 = [
         'Abstrata',
         'Impressionista',
         'Renascentista',
-        'Variado',
+        'Variados',
         'Contemporânea',
         'Cubista',
     ];
@@ -112,9 +148,14 @@
         options: {}
     };
 
+
 // Código responsável pela renderização das informações
 
 
+const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+    );
 const myChart2 = new Chart(
     document.getElementById('myChart2'),
     config2

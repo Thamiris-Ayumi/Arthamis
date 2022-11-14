@@ -90,12 +90,12 @@ body {
 /* INPUT TEXTO */
 
 .input {
-    margin-top: 1vh;
     background-color: #3e3e3e;
-    padding: 50px;
-    height: 600px;
+    padding: 20px;
+    height: 50%;
     border-radius: 10px;
     margin-bottom: 60px;
+    width: 1000px;
 }
 
 .input h2{
@@ -210,77 +210,6 @@ li {
     text-decoration: none;
 }
 
-
-
-/* CAIXAS */
-
-.caixas {
-    display: flex;
-    justify-content: center;
-    margin-top: 50vh;
-}
-
-.alinhamento1 {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    gap: 36px;
-    flex-direction: row;
-    position: fixed;
-    margin-right: 115vh;
-    margin-bottom: 10vh;
-}
-
-
-
-.caixa1 {
-    width: 190px;
-    height: 190px;
-    background: #F1F1F1;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-}
-
-
-.caixa1 .campo_branco {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin-left: 27px;
-    margin-top: 15px;
-}
-
-
-.campo_branco {
-    width: 150px;
-    height: 50px;
-
-    font-family: 'Chivo';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #000000;
-}
-
-
-
-.numerob {
-    width: 42px;
-    height: 32px;
-
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 36px;
-    color: #410442;
-    display: flex;
-    margin-top: 30px;
-    margin-left: 40%;
-}
 
 /* FOOTER */
 

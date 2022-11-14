@@ -85,12 +85,12 @@ body {
     justify-content: space-between;
 }
 
-.imagem {
+.imagem a{
     display: flex;
     justify-content: center;
-    margin-top: 10vh;
-    height: 450px;
-    margin-left: 10vh;
+    margin-top: 2vh;
+    height: 180px;
+    margin-left: 150px;
 }
 
 /* NAVBAR */
@@ -167,3 +167,131 @@ footer {
     width: 100%;
     text-align: center;
 }
+
+
+
+/* Alterei aqui */
+
+/* pagina mural */
+.dash-right {
+    display: flex;
+    padding: 3%;
+    width: 58%;
+    height: fit-content;
+    background-color: #2a2828;
+    position: relative;
+    margin-top: 20px;
+    border-radius: 10px;
+    left: 26%;
+  }
+
+
+.dash-right .avisos {
+  width: 100%;
+  /* border: 3px solid pink; */
+  color: rgb(216, 216, 216);
+  font-family: "Exo 2", sans-serif;
+}
+
+.dash-right .avisos .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dash-right .avisos .container .div-form {
+  width: 100%;
+}
+
+.dash-right .avisos .container .div-form #form_postagem {
+  width: 100%;
+}
+
+.dash-right .avisos .div-form label {
+  width: 100%;
+}
+
+.dash-right .avisos .div-form input {
+  width: 50%;
+  border-radius: 5px;
+  color: #000000;
+}
+
+.dash-right .avisos .div-form #titulo{
+  width: 70%;
+  color: black;
+  border: 3px solid #9f12cf;
+  background-color: white;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.dash-right .avisos .div-form textarea {
+  width: 70%;
+  color: black;
+  border: 3px solid #9f12cf;
+  background-color: white;
+  border-radius: 5px;
+}
+
+
+.dash-right .avisos .div-form button {
+  cursor: pointer;
+  font-family: "Exo 2", sans-serif;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 10px 15px;
+  color: white;
+  background-color: #ac33ce;
+  width: 150px;
+}
+
+.publicacao-btn-editar {
+  cursor: pointer;
+  font-family: "Exo 2", sans-serif;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 5px 8px;
+  color: white;
+  background-color: #e6005a;
+  width: 80px;
+}
+
+.publicacao {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  border-bottom: 3px solid #e6005a;
+  padding: 20px;
+}
+
+.publicacao > *:not(:last-child) {
+  padding: 0 0 10px 0;
+}
+
+.div-results {
+  width: 100%;
+}
+
+.div-results .feed-container {
+  background-color: #212124;
+  border-radius: 5px;
+  margin-bottom: 80px;
+}
+
+.div-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.div-buttons > * {
+  margin-left: 30px;
+}
+
