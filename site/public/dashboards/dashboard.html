@@ -101,7 +101,7 @@
 
     verificar_autenticacao();
 
-    function alterarTitulo(idDia) {
+    function alterarTitulo(idEstilo) {
         var tituloAquario = document.getElementById("tituloAquario")
         tituloAquario.innerHTML = "Quantidade de usuários que visitaram a página <span style='color: #ce6ce6'>hoje</span>"
     }
@@ -117,20 +117,20 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
-    function obterDadosGrafico(idDia) {
-        alterarTitulo(idDia)
+    function obterDadosGrafico(idEstilo) {
+        alterarTitulo(idEstilo)
 
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
         }
 
-        fetch(`/medidas/ultimas/${idDia}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/ultimas/${idEstilo}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
 
-                    plotarGrafico(resposta, idDia);
+                    plotarGrafico(resposta, idEstilo);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -144,7 +144,7 @@
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta, idDia) {
+    function plotarGrafico(resposta, idEstilo) {
         console.log('iniciando plotagem do gráfico...');
 
         // Criando estrutura para plotar gráfico - labels

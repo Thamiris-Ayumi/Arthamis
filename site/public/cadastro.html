@@ -76,6 +76,15 @@
                             </label>
                         </div>
 
+
+                        <select name="" id="sel_estilo" style="margin-left:110px; margin-top: 20px;">
+                            <option value="">- Escolha um estilo de arte -</option>
+                            <option value="1">Abstrato</option>
+                            <option value="2">Pós-impressionista</option>
+                            <option value="3">Renascentista</option>
+                            <option value="4">Outros</option>
+                        </select>
+
                     </div>
 
                     <div class="botao">
@@ -129,8 +138,9 @@
         var emailVar = in_email.value;
         var senhaVar = in_senha.value;
         var confirmacaoVar = in_confirmacao.value;
+        var estiloVar = sel_estilo.value
 
-        if (nomeVar == "" || celularVar == "" || emailVar == "" || senhaVar== "" || confirmacaoVar == "" ) {
+        if (nomeVar == "" || celularVar == "" || emailVar == "" || senhaVar== "" || confirmacaoVar == ""  || estiloVar == "" ) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
@@ -154,7 +164,8 @@
                 celularServer: celularVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar,
-                confirmacaoServer: confirmacaoVar
+                confirmacaoServer: confirmacaoVar,
+                estiloServer: estiloVar
             })
         }).then(function (resposta) {
 
