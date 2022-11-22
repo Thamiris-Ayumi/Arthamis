@@ -11,6 +11,28 @@ router.get("/listar", function (req, res) {
     avisoController.listar(req, res);
 });
 
+
+// alterações
+router.get("/abstrato", function (req, res) {
+    avisoController.abstrato(req, res);
+});
+
+router.get("/impressionismo", function (req, res) {
+    avisoController.impressionismo(req, res);
+});
+
+router.get("/renascentista", function (req, res) {
+    avisoController.renascentista(req, res);
+});
+
+router.get("/outros", function (req, res) {
+    avisoController.outros(req, res);
+});
+
+
+
+
+
 router.get("/listar/:idUsuario", function (req, res) {
     avisoController.listarPorUsuario(req, res);
 });
