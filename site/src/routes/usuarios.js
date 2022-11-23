@@ -20,4 +20,12 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+router.post("/criar-avaliacao", function (req, res) {
+    usuarioController.criarAvaliacao(req, res);
+})
+
+router.post("/buscar-quantidade", function (req, res) {
+    usuarioController.buscarQuantidade(req, res);
+})
+
 module.exports = router;

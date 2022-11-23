@@ -31,8 +31,18 @@ function cadastrar(nome, celular, email, senha, estilo) {
     return database.executar(instrucao);
 }
 
+function criarAvaliacao(nome_museu, nota, fkUsuario) {
+    return database.executar(`INSERT INTO avaliacao VALUES(NULL, '${nome_museu}', ${nota}, ${fkUsuario})`)
+}
+
+function buscarQuantidade(nomeMuseu) {
+    return database.executar(`select count(*) quantidade from avaliacao where nomemuseu = '${nomeMuseu}';`)
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
+    criarAvaliacao,
+    buscarQuantidade
 };
