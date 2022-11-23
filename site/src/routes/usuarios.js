@@ -20,6 +20,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+
+// Alterações dos museus
 router.post("/criar-avaliacao", function (req, res) {
     usuarioController.criarAvaliacao(req, res);
 })

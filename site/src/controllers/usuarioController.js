@@ -100,6 +100,8 @@ function cadastrar(req, res) {
     }
 }
 
+
+// Alterações dos museus
 function criarAvaliacao(req, res) {
     var nomeMuseu = req.body.nomeMuseuServer;
     var nota = req.body.notaServer;

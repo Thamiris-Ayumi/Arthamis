@@ -31,6 +31,9 @@ function cadastrar(nome, celular, email, senha, estilo) {
     return database.executar(instrucao);
 }
 
+
+
+// Alterações dos museus
 function criarAvaliacao(nome_museu, nota, fkUsuario) {
     return database.executar(`INSERT INTO avaliacao VALUES(NULL, '${nome_museu}', ${nota}, ${fkUsuario})`)
 }
