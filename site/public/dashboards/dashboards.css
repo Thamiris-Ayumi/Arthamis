@@ -355,6 +355,18 @@ iframe {
 }
 
 
+#b_visitantes {
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  background-color: #FFFFFF;
+  opacity: 80%;
+  color: #000000;
+  width: 100px;
+  margin-left: 200px;
+}
+
+
 /* BOTÃO */
 
 .botao button {
