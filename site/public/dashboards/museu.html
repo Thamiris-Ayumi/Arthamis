@@ -141,10 +141,11 @@
         }
         // FIM - FUNÇÃO ESTRELAS
 
+
+
         var nome = (in_nome.value).toLowerCase()
 
         // FUNÇÃO DE PESQUISAR NA LISTA O NOME DOS MUSEUS
-        // var nome = (in_nome.value).toLowerCase()
         var resultado = lista.findIndex(objeto => {
             return objeto.nome === nome
         })
@@ -224,7 +225,7 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    alert('Alerta cadastrado com sucesso!')
+                    alert('Sua avaliação foi cadastrada com sucesso!')
                 } else {
                     throw ("Houve um erro ao tentar realizar o cadastro!");
                 }
