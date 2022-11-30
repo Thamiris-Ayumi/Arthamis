@@ -31,7 +31,7 @@ body::-webkit-scrollbar-thumb {
 /* BACKGROUND */
 
 .background {
-    background-image: url("../assets/background3.jpg");
+    background-image: url("../assets/background-roxo.png");
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -94,6 +94,11 @@ body::-webkit-scrollbar-thumb {
     width: 100%;
 }
 
+
+#li_sobreMim{
+    color: #CB6CE6;
+}
+
 a {
     color: white;
     text-decoration: none;
@@ -118,8 +123,8 @@ a {
     color: #FFFFFF;
     font-size: 50px;
     font-weight: 500;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-shadow: -2px 2px 2px #7e7c7c;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: -2px 2px 1px #40d9ff;
 }
 
 .slogan i {

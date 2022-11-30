@@ -35,29 +35,32 @@
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
 
-            <div class="btn-nav-white">
-                <a href="./museu.html">
+            <div class="btn-nav">
+                <a href="museu.html">
+                    <img class="logo" src="/assets/museum.png" alt="" width="35px">
                     <h3>Museus</h3>
                 </a>
             </div>
 
-            <div class="btn-nav">
-
-                <h3>Gráficos</h3>
-
+            <div class="btn-nav-white">
+                <a href="./dashboard.html">
+                    <img class="logo" src="/assets/grafico.png" alt="" width="35px">
+                    <h3>Gráficos</h3>
+                </a>
             </div>
 
-            <div class="btn-nav-white">
+            <div class="btn-nav">
                 <a href="./mural.html">
+                    <img class="logo" src="/assets/comentario-positivo.png" alt="" width="35px"><br>
                     <h3>Comentário</h3>
                 </a>
             </div>
 
-            <div class="btn-logout">
-                <a href="/index.html">
-                    <h3>Sair</h3>
-                </a>
-            </div>
+
+            <a href="/index.html">
+                <img class="logo" src="/assets/porta.png" alt="" width="28px">
+            </a>
+
 
         </div>
 
@@ -96,7 +99,7 @@
     var renascentista1 = sessionStorage.QTD_RENASCENTISTA;
     var outros1 = sessionStorage.QTD_OUTROS;
 
-  
+
 
     function abstrato() {
 
@@ -173,7 +176,7 @@
                     sessionStorage.QTD_OUTROS = resposta[0].outros
                     outros1 = sessionStorage.QTD_OUTROS
                 });
-                setTimeout(()=> {
+                setTimeout(() => {
                     criarGrafico()
                 }, "400")
 
