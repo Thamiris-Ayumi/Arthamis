@@ -31,7 +31,7 @@ body::-webkit-scrollbar-thumb {
 /* BACKGROUND */
 
 .background {
-    background-image: url("../assets/background-roxo.png");
+    background-image: url("../assets/background-roxo2.jpg");
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -119,7 +119,7 @@ a {
 }
 
 .slogan p {
-    padding-left: 80px;
+    padding-left: 180px;
     color: #FFFFFF;
     font-size: 50px;
     font-weight: 500;
