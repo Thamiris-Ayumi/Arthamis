@@ -31,6 +31,11 @@ router.get("/outros", function (req, res) {
 // finalização das alterações dos gráficos
 
 
+// Alterações da página de comentarios
+router.get("/validar/:idUsuario", function (req, res) {
+    avisoController.validar(req, res);
+});
+
 
 
 router.get("/listar/:idUsuario", function (req, res) {

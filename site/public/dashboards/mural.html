@@ -18,7 +18,7 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), atualizarFeed()" style="background-color: #161618;">
+<body onload="validarSessao(), atualizarFeed(), validar()" style="background-color: #161618;">
     <!-- <body onload="validarSessao()"> -->
 
     <div class="janela">
@@ -121,27 +121,49 @@
 </html>
 
 <script>
-    
+    var valido = 0
+    sessionStorage.VALIDAR = valido;
+
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     function limparFormulario() {
         document.getElementById("form_postagem").reset();
     }
-    
 
-    var validar = 0
-    sessionStorage.VALIDAR = validar
 
-    function validar(){
-        
+    function validar() {
+
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/avisos/validar/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log(resposta[0].valido);
+                    sessionStorage.VALIDAR = resposta[0].validacao
+
+                    valido = sessionStorage.VALIDAR
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro no cadastro dos dados do mural ${error.message}`);
+            });
     }
 
     function publicar() {
+        if (sessionStorage.VALIDAR == 0) {
+
         var idUsuario = sessionStorage.ID_USUARIO;
+        valido++
 
         var corpo = {
             titulo: form_postagem.titulo.value,
-            descricao: form_postagem.descricao.value
+            descricao: form_postagem.descricao.value,
+            valido: valido
         }
 
         fetch(`/avisos/publicar/${idUsuario}`, {
@@ -170,6 +192,10 @@
         });
 
         return false;
+    } else {
+        alert("Só pode ser adicionado uma avaliação por usuario, caso queira alterar edite sua avaliação")
+        return false;
+    }
 
     }
 
