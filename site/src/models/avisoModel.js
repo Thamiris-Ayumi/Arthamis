@@ -78,7 +78,7 @@ function validar(idUsuario) {
     u.senha
 FROM comentario a
     INNER JOIN usuario u
-        ON a.fk_usuario = u.idUsuario
+        ON a.fk_usuario = u.id
 WHERE u.id = ${idUsuario};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
