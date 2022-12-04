@@ -19,7 +19,6 @@
 </head>
 
 <body onload="validarSessao(), atualizarFeed(), validar()" style="background-color: #161618;">
-    <!-- <body onload="validarSessao()"> -->
 
     <div class="janela">
 
@@ -90,9 +89,7 @@
                     </div>
 
                 </div>
-                <!-- <div class="imagem">
-                    <a href="dashboard.html"><img class="user" src="/assets/config.png" alt="" width="80%" style="margin-top: 60px; margin-left: 120px"></a>
-                </div> -->
+                
             </div>
 
 
@@ -177,7 +174,7 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                window.alert("Comentário enviado com sucesso pelo usuario de ID: " + idUsuario + "!");
+                window.alert("Comentário enviado com sucesso pelo usuário de ID: " + idUsuario + "!");
                 window.location = "./mural.html";
                 limparFormulario();
                 finalizarAguardar();
@@ -193,7 +190,7 @@
 
         return false;
     } else {
-        alert("Só pode ser adicionado uma avaliação por usuario, caso queira alterar edite sua avaliação")
+        alert("Só pode ser adicionado uma avaliação por usuário, caso queira alterar edite seu comentário!")
         return false;
     }
 
